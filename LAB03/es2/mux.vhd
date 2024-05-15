@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY mux IS
+PORT(
+  Z: IN STD_LOGIC;
+  OPin, OPmod: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+  SELECTED: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+);
+END mux;
+
+ARCHITECTURE Behavior OF mux IS
+BEGIN
+
+PROCESS(Z, OPin, OPmod)
+BEGIN
+
+IF (Z = '1') THEN SELECTED <= OPmod;
+ELSE SELECTED <= OPin;
+END IF;
+
+END PROCESS;
+END Behavior;
